@@ -1,0 +1,41 @@
+<!-- views/vehicles/create.htm -->
+
+<div class="container">
+    <h2>Add New Vehicle</h2>
+    
+    <form action="<?= Backend::url('rono/adminpanel/vehicles/store') ?>" method="POST">
+        <?= csrf_field() ?>
+        
+        <div class="form-group">
+            <label for="name">Vehicle Name</label>
+            <input type="text" name="name" id="name" class="form-control" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="order_view">Order View</label>
+            <input type="number" name="order_view" id="order_view" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="vehicle_types">Vehicle Types</label>
+            <div id="vehicle_types_wrapper">
+                <input type="text" name="vehicle_types[]" class="form-control mb-2">
+            </div>
+            <button type="button" id="add_type" class="btn btn-secondary">Add Type</button>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Save Vehicle</button>
+        <a href="<?= Backend::url('rono/adminpanel/vehicles') ?>" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+<script>
+document.getElementById('add_type').addEventListener('click', function() {
+    var wrapper = document.getElementById('vehicle_types_wrapper');
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.name = 'vehicle_types[]';
+    input.classList.add('form-control', 'mb-2');
+    wrapper.appendChild(input);
+});
+</script>

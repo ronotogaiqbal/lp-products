@@ -1,0 +1,86 @@
+<form data-request="{{ __SELF__ }}::onFormSubmit" class="needs-validation" novalidate>
+    {{ form_token() }}
+    <div id="{{ __SELF__ }}_forms_flash"></div>
+    <div class="mb-3">
+        <label for="nama" class="form-label">Nama*</label>
+        <input type="text" class="form-control" id="nama" name="nama" required>
+        <div class="invalid-feedback">
+            Nama wajib diisi.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="namaGrup" class="form-label">Nama Grup*</label>
+        <input type="text" class="form-control" id="namaGrup" name="namaGrup" required>
+        <div class="invalid-feedback">
+            Nama Grup wajib diisi.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="namaPerusahaan" class="form-label">Nama Perusahaan*</label>
+        <input type="text" class="form-control" id="namaPerusahaan" name="namaPerusahaan" required>
+        <div class="invalid-feedback">
+            Nama Perusahaan wajib diisi.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="idKaryawan" class="form-label">ID Karyawan/Precious*</label>
+        <input type="text" class="form-control" id="idKaryawan" name="idKaryawan" required>
+        <div class="invalid-feedback">
+            ID Karyawan/Precious wajib diisi.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">E-mail*</label>
+        <input type="email" class="form-control" id="email" name="email" required>
+        <div class="invalid-feedback">
+            E-mail wajib diisi.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="nomorTelepon" class="form-label">Nomor Telepon*</label>
+        <input type="tel" class="form-control" id="nomorTelepon" name="nomorTelepon" required>
+        <div class="invalid-feedback">
+            Nomor Telepon wajib diisi.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="domisiliKTP" class="form-label">Domisili KTP*</label>
+        <input type="text" class="form-control" id="domisiliKTP" name="domisiliKTP" required>
+        <div class="invalid-feedback">
+            Domisili KTP wajib diisi.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="jenisMobil" class="form-label">Jenis Mobil yang Diminati*</label>
+        <input type="text" class="form-control" id="jenisMobil" name="jenisMobil" required>
+        <div class="invalid-feedback">
+            Jenis Mobil yang Diminati wajib diisi.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Test Drive*</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="testDriveYes" name="testDrive" value="Iya" required>
+            <label class="form-check-label" for="testDriveYes">Iya</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" id="testDriveNo" name="testDrive" value="Tidak" required>
+            <label class="form-check-label" for="testDriveNo">Tidak</label>
+        </div>
+        <div class="invalid-feedback">
+            Test Drive wajib dipilih.
+        </div>
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="agreement" name="agreement" required>
+        <label class="form-check-label" for="agreement">
+            Dengan mengakses halaman ini, Anda mengakui dan setuju bahwa Anda secara sadar memberikan data pribadi Anda, menerima praktik, persyaratan, dan/atau kebijakan yang diuraikan dalam Kebijakan ini, dan Anda dengan ini mengizinkan Kami untuk mengumpulkan, menggunakan, mengungkapkan dan/atau mengolah data pribadi Anda seperti yang dijelaskan di sini.
+        </label>
+        <div class="invalid-feedback">
+            Anda harus menyetujui persyaratan sebelum mengirimkan.
+        </div>
+    </div>
+        {% partial '@recaptcha' %}
+    
+    <button type="submit" class="btn btn-primary">Pesan Sekarang</button>
+</form>

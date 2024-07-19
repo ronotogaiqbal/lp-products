@@ -1,0 +1,28 @@
+# config_form.yaml
+
+modelClass: Rono\AdminPanel\Models\Vehicle
+
+form:
+    fields:
+        name:
+            label: 'Vehicle Name'
+            type: 'text'
+            span: 'full'
+            required: true
+
+        order_view:
+            label: 'Order View'
+            type: 'number'
+            span: 'full'
+            required: true
+
+        vehicle_types:
+            label: 'Vehicle Types'
+            type: 'repeater'
+            span: 'full'
+            form:
+                fields:
+                    type:
+                        label: 'Type'
+                        type: 'text'
+                        required: true

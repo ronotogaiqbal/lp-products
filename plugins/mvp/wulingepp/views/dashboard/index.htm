@@ -1,0 +1,37 @@
+{% put head %}
+    <title>Wuling EPP Admin Dashboard</title>
+{% endput %}
+
+{% put body %}
+    <h1>Wuling EPP Admin Dashboard</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Banners</h5>
+                    <p class="card-text">Total: {{ banners.count() }}</p>
+                    <a href="{{ url('admin/wulingepp/banners') }}" class="btn btn-primary">Manage Banners</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Bookings</h5>
+                    <p class="card-text">Total: {{ bookings.count() }}</p>
+                    <a href="{{ url('admin/wulingepp/bookings') }}" class="btn btn-primary">Manage Bookings</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Vehicles</h5>
+                    <p class="card-text">Total: {{ vehicles.count() }}</p>
+                    <a href="{{ url('admin/wulingepp/vehicles') }}" class="btn btn-primary">Manage Vehicles</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endput %}

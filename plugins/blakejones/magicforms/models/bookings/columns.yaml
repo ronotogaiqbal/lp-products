@@ -1,0 +1,10 @@
+columns:
+    nama:
+        label: Nama
+        type: text
+    alamat:
+        label: Alamat
+        type: text
+    type:
+        label: Type
+        type: text

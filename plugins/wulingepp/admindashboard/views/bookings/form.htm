@@ -1,0 +1,40 @@
+<!-- plugins/wulingepp/admindashboard/views/bookings/form.htm -->
+{% extends "wulingepp/admindashboard/layouts/default" %}
+
+{% block content %}
+    <h2>{{ form_mode == 'create' ? 'Create' : 'Edit' }} Booking</h2>
+    {{ form_open({ request: form_mode == 'create' ? 'onCreateBooking' : 'onUpdateBooking' }) }}
+        <input type="hidden" name="id" value="{{ booking.id }}">
+        
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="{{ booking.name }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" value="{{ booking.email }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" name="phone" id="phone" value="{{ booking.phone }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="vehicle">Vehicle</label>
+            <input type="text" name="vehicle" id="vehicle" value="{{ booking.vehicle }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="status">Status</label>
+            <select name="status" id="status">
+                <option value="Pending" {{ booking.status == 'Pending' ? 'selected' }}>Pending</option>
+                <option value="Confirmed" {{ booking.status == 'Confirmed' ? 'selected' }}>Confirmed</option>
+                <option value="Cancelled" {{ booking.status == 'Cancelled' ? 'selected' }}>Cancelled</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">{{ form_mode == 'create' ? 'Create' : 'Update' }} Booking</button>
+    {{ form_close() }}
+{% endblock %}

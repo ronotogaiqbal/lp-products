@@ -1,0 +1,192 @@
+.navbar{
+    background-color: rgba(256, 256, 256, 1);
+}
+.flex-container {
+      display: flex;
+      justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      gap: 30vw;
+    }
+.flex-item {
+    flex: 1;
+    text-align: center;
+}
+.btn-outline-success {
+    color: #10b981;
+    border-color: #10b981;
+}
+.herobg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-image: url('../../../../storage/app/media/img/hero-background.png');
+    background-repeat: round;
+    min-height: 100vh;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+    .herobg {
+        /* Adjust background size for mobile */
+        background-size: cover;
+        background-position: center;
+        min-height: 140vw; /* Example adjustment, you can modify as needed */
+    }
+
+    .form-group.d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .form-group.d-flex .g-recaptcha {
+        margin-bottom: 15px;
+    }
+
+    .form-group.d-flex button {
+        width: 100%;
+    }
+}
+/* Media query for ipad devices */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .herobg {
+        background-size: contain;
+        background-position: center;
+        min-height: 83vw; /* Adjust as needed for iPad */
+    }
+}
+.hero .carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    /* border-radius: 15%; */
+    height: 100%;
+    width: 100%;
+}
+.hero .carousel-caption {
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    padding: 20px;
+    border-radius: 10px;
+}
+.hero .carousel-caption h1,
+.hero .carousel-caption h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.hero .carousel-caption p {
+    font-size: 1.2rem;
+}
+.hero .carousel-indicators {
+    bottom: 20px;
+}
+.hero .carousel-control-prev,
+.hero .carousel-control-next {
+    width: 5%;
+}
+/* text */
+.gradient-text {
+    background: linear-gradient(to right, #1D5D94, #1AB5C9);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.gradient-button {
+    background: linear-gradient(to right, #1D5D94, #1AB5C9);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+.gradient-button:hover {
+    background: linear-gradient(to right, #1AB5C9, #1D5D94);
+    color: var(--bs-light);
+}
+.keuntungan .card{
+    transition: transform 0.3s;
+}
+.keuntungan .card:hover{
+    transform: translateY(-5px);
+}
+.icon-link-hover:hover{
+    transform: translateY(-5px);
+}
+.custom-list {
+    list-style: none;
+    padding-left: 0;
+}
+.custom-list li {
+    position: relative;
+    padding-left: 2em; /* Adjust padding to fit the icon */
+}
+.custom-list li::before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-4 4.5a.75.75 0 0 1-1.08 0l-2-2.25a.75.75 0 1 1 1.08-1.05l1.47 1.664 3.47-3.864z"/></svg>');
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.5em;
+    height: 1.5em;
+}
+.img-container{
+    min-height: 16rem;
+}
+footer a{
+    color: white;
+    text-decoration: none;
+}
+footer a:hover{
+    color: #1AB5C9;
+    text-decoration: none;
+}
+
+#jenisMobil + .select2-container .select2-selection--single {
+height: 10% !important;
+}
+
+/* new generated for the nav bar */
+.custom-navbar {
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.custom-flex-item {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.custom-img {
+    max-height: 88px;
+    height: auto;
+    width: auto;
+}
+
+/* gradient button for booking submit */
+.gradient-button {
+    background: linear-gradient(to right, #0070c9, #00d4ff); /* Adjust the colors to match the gradient in your image */
+    border: none;
+    border-radius: 100px; /* Adjust the value to match the rounded edges in your image */
+    color: white;
+    padding: 15px 0; /* Adjust padding to match the size in your image */
+    text-align: center;
+    text-decoration: none;
+    display: block; /* Change to block for full width */
+    font-size: 16px; /* Adjust font size to match your design */
+    transition: background 0.3s ease;
+    cursor: pointer;
+    width: 100%; /* Ensure the button takes the full width of the container */
+    max-width: 100%; /* Prevent overflow */
+}
+
+.gradient-button:hover {
+    background: linear-gradient(to right, #005a9e, #00a3cc); /* Adjust hover colors as needed */
+}

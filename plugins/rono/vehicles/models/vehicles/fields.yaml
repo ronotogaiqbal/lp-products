@@ -1,0 +1,13 @@
+fields:
+    name:
+        label: 'Vehicle Name'
+        span: auto
+        type: text
+    order_view:
+        label: 'Order View'
+        span: auto
+        type: text
+    id:
+        label: ID
+        span: auto
+        type: number

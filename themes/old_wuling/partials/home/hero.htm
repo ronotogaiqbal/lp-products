@@ -1,0 +1,34 @@
+[bannerSlider]
+==
+<div class="herobg"></div>
+<div class="position-relative pt-5 text-white text-center">
+    <h1 class="display-6 text-primary pt-5">FIND YOUR DREAM CAR</h1>
+    <br>
+    <h1 class="display-1">Elevate Your <span class="text-primary">Drive</span></h1>
+    <br>
+    <h1 class="display-5 mb-5">Discover Excellence in Every Vehicle</h1>
+</div>
+<!-- class="carousel slide" data-bs-ride="carousel" -->
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner shadow rounded-4">
+    {% for banner in banners %}
+        <div class="carousel-item ">
+            <img src="{{ banner.link }}" class="d-block w-100" alt="{{ banner.link }}}}" />
+        </div>
+    {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+{% put scripts %}
+<script>
+$('#heroCarousel .carousel-item').first().addClass('active');
+</script>
+{% endput %}

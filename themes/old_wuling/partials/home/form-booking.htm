@@ -1,0 +1,136 @@
+[carDetail]
+==
+<div class="modal fade" id="bookingModal" tabindex="false" aria-labelledby="bookingModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="bookingModalLabel">Formulir Pemesanan</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form data-request="{{ __SELF__ }}::onFormSubmit" class="needs-validation" novalidate>
+                    {{ form_token() }}
+                    <div id="{{ __SELF__ }}_forms_flash"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Jhon Wick"
+                                    required>
+                                <label for="nama">Nama</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="namaPerusahaan" name="namaPerusahaan"
+                                    required placeholder="Nama Perusahaan">
+                                <label for="namaPerusahaan">Nama Perusahaan</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="email" name="email" required
+                                    placeholder="">
+                                <label for="email">E-mail*</label>
+                                <div class="invalid-feedback">
+                                    E-mail wajib diisi.
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select select2" id="domisiliKTP" name="domisiliKTP"
+                                    data-placeholder="Domisili KTP">
+                                    <option></option>
+                                    <option>Jakarta</option>
+                                    <option>Bogor</option>
+                                    <option>Depok</option>
+                                    <option>Tangerang</option>
+                                    <option>Bekasi</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="namaGrup" name="namaGrup" required
+                                    placeholder="">
+                                <label for="namaGrup">Nama Grup*</label>
+                                <div class="invalid-feedback">
+                                    Nama Grup wajib diisi.
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="idKaryawan" name="idKaryawan" required
+                                    placeholder="">
+                                <label for="idKaryawan">ID Karyawan/Precious*</label>
+                                <div class="invalid-feedback">
+                                    ID Karyawan/Precious wajib diisi.
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="tel" class="form-control" id="nomorTelepon" name="nomorTelepon" required
+                                    placeholder="">
+                                <label for="nomorTelepon">Nomor Telepon*</label>
+                                <div class="invalid-feedback">
+                                    Nomor Telepon wajib diisi.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">Detail Mobil</div>
+                    <br>
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="jenisMobil" name="jenisMobil" required
+                            placeholder="">
+                        <label for="jenisMobil">Jenis Mobil yang Diminati*</label>
+                        <div class="invalid-feedback">
+                            Jenis Mobil yang Diminati wajib diisi.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Test Drive*</label><br>
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input" type="radio" id="testDriveYes" name="testDrive" value="Iya"
+                                checked>
+                            <label class="form-check-label" for="testDriveYes">Iya</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="testDriveNo" name="testDrive" value="Tidak"
+                                required>
+                            <label class="form-check-label" for="testDriveNo">Tidak</label>
+                        </div>
+                        <div class="invalid-feedback">
+                            Test Drive wajib dipilih.
+                        </div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="agreement" name="agreement" required>
+                        <label class="form-check-label" for="agreement">
+                            Dengan mengakses halaman ini, Anda mengakui dan setuju bahwa Anda secara sadar memberikan
+                            data pribadi Anda,
+                            menerima praktik, persyaratan, dan/atau kebijakan yang diuraikan dalam Kebijakan ini, dan
+                            Anda dengan ini
+                            mengizinkan Kami untuk mengumpulkan, menggunakan, mengungkapkan dan/atau mengolah data
+                            pribadi Anda seperti
+                            yang dijelaskan di sini.
+                        </label>
+                        <div class="invalid-feedback">
+                            Anda harus menyetujui persyaratan sebelum mengirimkan.
+                        </div>
+                    </div>
+                    <div class="form-group d-flex justify-content-center">
+                        <button type="submit" class="btn btn-link">
+                            <img class="img-fluid" src="{{ 'storage/app/media/img/pesan-mobil-sekarang.png' }}"
+                                alt="Pesan Sekarang">
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% put scripts %}
+<script>
+    $(document).ready(function () {
+        $('.select2').each(function () {
+            $(this).select2({
+                theme: 'bootstrap-5',
+                dropdownParent: $(this).parent(),
+            });
+        });
+    });
+</script>
+{% endput %}

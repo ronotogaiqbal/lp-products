@@ -1,0 +1,16 @@
+<!-- plugins/wulingepp/admindashboard/views/dashboard/index.htm -->
+{% extends "wulingepp/admindashboard/layouts/default" %}
+
+{% block content %}
+    <h2>Welcome to the Admin Dashboard</h2>
+    <div class="dashboard-summary">
+        <div class="card">
+            <h3>Total Banners</h3>
+            <p>{{ banners.count }}</p>
+        </div>
+        <div class="card">
+            <h3>Total Bookings</h3>
+            <p>{{ bookings.count }}</p>
+        </div>
+    </div>
+{% endblock %}

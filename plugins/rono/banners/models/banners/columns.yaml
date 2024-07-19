@@ -1,0 +1,16 @@
+columns:
+    link:
+        label: Link
+        type: text
+        searchable: true
+    image_path:
+        label: Path
+        type: text
+        searchable: true
+    order:
+        label: Order
+        type: number
+        sortable: true
+    is_active:
+        label: 'is Active'
+        type: switch

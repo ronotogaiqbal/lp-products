@@ -1,0 +1,11 @@
+list: $/mvp/wulingepp/models/banner/columns.yaml
+modelClass: MVP\WulingEPP\Models\Banner
+title: Manage Banners
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

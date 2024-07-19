@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Booking
+
+# Model Form Field configuration
+form: $/wulingepp/admindashboard/models/booking/fields.yaml
+
+# Model Class name
+modelClass: WulingEPP\AdminDashboard\Models\Booking
+
+# Default redirect location
+defaultRedirect: wulingepp/admindashboard/bookings
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: wulingepp/admindashboard/bookings/update/:id
+    redirectClose: wulingepp/admindashboard/bookings
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: wulingepp/admindashboard/bookings
+    redirectClose: wulingepp/admindashboard/bookings
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

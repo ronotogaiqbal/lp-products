@@ -1,0 +1,37 @@
+{% extends 'mvp.wulingepp::layouts.admin' %}
+
+{% block content %}
+    <h1>Banners</h1>
+    <a href="{{ url('admin/wulingepp/banners/create') }}" class="btn btn-primary mb-3">Create New Banner</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+                <th>Link</th>
+                <th>Order</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for banner in banners %}
+                <tr>
+                    <td>{{ banner.id }}</td>
+                    <td><img src="{{ banner.image_path }}" width="100"></td>
+                    <td>{{ banner.link }}</td>
+                    <td>{{ banner.order }}</td>
+                    <td>{{ banner.is_active ? 'Yes' : 'No' }}</td>
+                    <td>
+                        <a href="{{ url('admin/wulingepp/banners/' ~ banner.id ~ '/edit') }}" class="btn btn-sm btn-primary">Edit</a>
+                        <form action="{{ url('admin/wulingepp/banners/' ~ banner.id) }}" method="POST" style="display: inline;">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

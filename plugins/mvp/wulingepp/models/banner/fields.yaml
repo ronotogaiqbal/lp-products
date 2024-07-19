@@ -1,0 +1,17 @@
+fields:
+    link:
+        label: Link
+        type: text
+        span: full
+    image:
+        label: Image
+        type: fileupload
+        mode: image
+        imageWidth: 200
+        imageHeight: 200
+    order:
+        label: Order
+        type: number
+    is_active:
+        label: Is Active
+        type: switch

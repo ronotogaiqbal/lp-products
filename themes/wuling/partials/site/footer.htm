@@ -1,0 +1,25 @@
+<footer class="footer bg-dark text-light rounded-top">
+    <div class="d-flex justify-content-around border-bottom" style="padding-top:25px;padding-bottom:30px">
+        <div class="vendor">
+            <img class="img-fluid" src="{{ 'storage/app/media/img/sinarmas-logo-footer.png' }}" alt="SINARMAS LAND" width="270" />
+        </div>
+        <div class="backlinks">
+            <a href="#" class="d-block" data-bs-toggle="modal" data-bs-target="#about-us">Tentang Kami</a>
+            <a href="#" class="d-block" data-bs-toggle="modal" data-bs-target="#terms-page">Syarat dan Ketentuan</a>
+            <a href="#" class="d-block" data-bs-toggle="modal" data-bs-target="#conditions-page">Kebijakan Privasi</a>
+            <!--
+            <a href="/terms" class="d-block">Syarat dan Ketentuan</a>
+            <a href="/kebijakan" class="d-block">Kebijakan Privasi</a>
+            //-->
+        </div>
+        <div class="footerlogo">
+            <img class="img-fluid" src="{{ 'storage/app/media/img/wuling-logo-footer.png' }}" alt="Wuling Logo" />
+        </div>
+    </div>
+    <div class="py-2 d-flex justify-content-center">
+        @ Copyright {{ "now"|date("Y") }}. All rights reserved.
+    </div>
+</footer>
+{% content "about-us.htm" %}
+{% content "terms-page.htm" %}
+{% content "conditions-page.htm" %}

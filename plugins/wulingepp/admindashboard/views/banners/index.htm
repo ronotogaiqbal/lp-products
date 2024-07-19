@@ -1,0 +1,34 @@
+<!-- plugins/wulingepp/admindashboard/views/banners/index.htm -->
+{% extends "wulingepp/admindashboard/layouts/default" %}
+
+{% block content %}
+    <h2>Banner Management</h2>
+    {% if banners|length > 0 %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Link</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for banner in banners %}
+                    <tr>
+                        <td><img src="{{ banner.image.path }}" alt="Banner" width="100"></td>
+                        <td>{{ banner.link }}</td>
+                        <td>{{ banner.is_active ? 'Active' : 'Inactive' }}</td>
+                        <td>
+                            <a href="{{ 'banners/edit'|page({ id: banner.id }) }}">Edit</a>
+                            <a href="{{ 'banners/delete'|page({ id: banner.id }) }}" onclick="return confirm('Are you sure?')">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No banners found.</p>
+    {% endif %}
+    <a href="{{ 'banners/create'|page }}" class="btn btn-primary">Add New Banner</a>
+{% endblock %}

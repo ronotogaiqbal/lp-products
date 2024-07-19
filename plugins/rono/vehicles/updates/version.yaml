@@ -1,0 +1,29 @@
+v1.0.1:
+    - 'Initialize plugin'
+v1.0.2:
+    - 'Created table rono_vehicles_'
+    - builder_table_create_rono_vehicles_.php
+v1.0.3:
+    - 'Created table rono_vehicles_type'
+    - builder_table_create_rono_vehicles_type.php
+v1.0.4:
+    - 'Created table rono_vehicles_bookings'
+    - builder_table_create_rono_vehicles_bookings.php
+v1.0.5:
+    - 'Updated table rono_vehicles_bookings'
+    - builder_table_update_rono_vehicles_bookings.php
+v1.0.6:
+    - 'Updated table rono_vehicles_type'
+    - builder_table_update_rono_vehicles_type.php
+v1.0.7:
+    - 'Updated table rono_vehicles_bookings'
+    - builder_table_update_rono_vehicles_bookings_2.php
+v1.0.8:
+    - 'Updated table rono_vehicles_bookings'
+    - builder_table_update_rono_vehicles_bookings_3.php
+v1.0.9:
+    - 'Updated table rono_vehicles_bookings'
+    - builder_table_update_rono_vehicles_bookings_4.php
+v1.0.10:
+    - 'Updated table rono_vehicles_type'
+    - builder_table_update_rono_vehicles_type_2.php

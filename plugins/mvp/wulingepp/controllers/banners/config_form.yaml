@@ -1,0 +1,10 @@
+name: Banner
+form: $/mvp/wulingepp/models/banner/fields.yaml
+modelClass: MVP\WulingEPP\Models\Banner
+defaultRedirect: mvp/wulingepp/banners
+create:
+    redirect: 'mvp/wulingepp/banners/update/:id'
+    redirectClose: mvp/wulingepp/banners
+update:
+    redirect: mvp/wulingepp/banners
+    redirectClose: mvp/wulingepp/banners

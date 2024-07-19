@@ -1,0 +1,20 @@
+v1.0.1:
+    - 'Initialize plugin'
+v1.0.2:
+    - 'Created table rono_banners_'
+    - builder_table_create_rono_banners_.php
+v1.0.3:
+    - 'Created table rono_banners_vehivles_'
+    - builder_table_create_rono_banners_vehivles_.php
+v1.0.4:
+    - 'Drop table rono_banners_vehivles_'
+    - builder_table_delete_rono_banners_vehivles_.php
+v1.0.5:
+    - 'Created table rono_banners_vehivles'
+    - builder_table_create_rono_banners_vehivles.php
+v1.0.6:
+    - 'Updated table rono_banners_vehivles'
+    - builder_table_update_rono_banners_vehivles_.php
+v1.0.7:
+    - 'Updated table rono_banners_vehivles_'
+    - builder_table_update_rono_banners_vehivles__2.php

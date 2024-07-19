@@ -1,0 +1,36 @@
+[listVehicles]
+==
+<section class="vehicle-list py-5">
+    <div class="container">
+        <h2 class="display-4">Daftar Mobil</h2>
+        <p class="lead">
+            *harga yang tertera merupakan OTR Jakarta termasuk insentif PPN
+        </p>
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <input type="text" id="carSearch" class="form-control" placeholder="Cari mobil..." />
+            </div>
+            <div class="col-md-3">
+                <select id="carModelFilter" class="form-select">
+                    <option value="">Semua Model</option>
+                    
+                    {% for mdl in models %}
+                    <option value="{{ mdl.model }}">{{ mdl.model }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-3">
+                <select id="carTypeFilter" class="form-select">
+                    <option value="">Semua Transmission</option>
+                    {% for tr in transmissions %}
+                    <option value="{{ tr.transmission }}">{{ tr.transmission }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div id="vehicleContainer">
+            {% partial 'home/car_list' %}
+        </div>
+        <div id="pagination">{% partial 'home/pagination' %}</div>
+    </div>
+</section>

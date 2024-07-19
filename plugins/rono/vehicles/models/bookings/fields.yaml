@@ -1,0 +1,44 @@
+fields:
+    prospect_name:
+        label: 'Prospect Name'
+        span: auto
+        type: text
+    prospect_group:
+        label: 'Prospect Group'
+        span: auto
+        type: text
+    prospect_company:
+        label: 'Prospect Company'
+        span: auto
+        type: text
+    prospect_domisili:
+        label: 'Domisili KTP'
+        options:
+            Jakarta: Jakarta
+            Bogor: Bogor
+            Tangerang: Tangerang
+            Bekasi: Bekasi
+            Depok: Depok
+        showSearch: true
+        span: auto
+        type: dropdown
+    prospect_email:
+        label: 'Prospect Email'
+        span: auto
+        type: text
+    prospect_phone:
+        label: 'Prospect Phone'
+        span: auto
+        type: text
+    vehicle_types_id:
+        label: 'ID Vehicle Type'
+        span: auto
+        type: number
+    test_drive:
+        label: 'Test Drive'
+        span: auto
+        type: checkbox
+    tc_checked:
+        label: 'T&C'
+        span: auto
+        type: checkbox

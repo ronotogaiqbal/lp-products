@@ -1,0 +1,20 @@
+# config_list.yaml
+
+modelClass: Rono\AdminPanel\Models\Vehicle
+
+list:
+    columns:
+        name:
+            label: 'Vehicle Name'
+            searchable: true
+            sortable: true
+
+        order_view:
+            label: 'Order View'
+            sortable: true
+
+        vehicle_types:
+            label: 'Vehicle Types'
+            relation: 'vehicleTypes'
+            select: 'type'
+            sortable: false

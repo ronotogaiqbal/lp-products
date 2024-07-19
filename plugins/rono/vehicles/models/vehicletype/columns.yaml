@@ -1,0 +1,39 @@
+columns:
+    vehicles_id:
+        label: 'ID Vehicle'
+        type: number
+    name_type:
+        label: 'Name Type'
+        type: text
+        searchable: true
+        sortable: true
+    fuel:
+        label: Fuel
+        type: text
+        searchable: true
+        sortable: true
+    transmission:
+        label: Transmission
+        type: text
+        searchable: true
+        sortable: true
+    image_path:
+        label: 'Image Path'
+        type: text
+    link_brochure:
+        label: E-Brochure
+        type: text
+    price:
+        label: Price
+        type: number
+        searchable: true
+    discount:
+        label: Discount
+        type: number
+    link_more:
+        label: 'Link for More'
+        type: text
+    model:
+        label: Model
+        type: text
+        searchable: true

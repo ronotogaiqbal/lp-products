@@ -1,0 +1,61 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for car in cars %}
+    <div class="col car-item">
+        <div class="shadow-sm card vehicle-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between border-bottom pb-1">
+                    <h5 class="card-title">{{ car.name }}</h5>
+                    <a class="icon-link icon-link-hover text-decoration-none border-info rounded-pill border px-2"
+                        href="{{ car.types[0].link_more }}">
+                        <span class="gradient-text">Lihat Detail <i class="bi-arrow-up-right"></i></span>
+                    </a>
+                </div>
+                <div class="img-container">
+                    <img class="img-fluid" src="{{ car.types[0].image_path }}" class="card-img-top"
+                        alt="{{ car.name }}" />
+                </div>
+                <select class="form-select" aria-label="Pilih Type" id="carType">
+                    {% for type in car.types %}
+                    <option value="{{ type.id }}">{{ type.name_type }}</option>
+                    {% endfor %}
+                </select>
+                <legend class="lead border-bottom pt-2 pb-2">
+                    Fitur
+                    <div class="fitur d-flex justify-content-between">
+                        <div class="fitur-item d-flex text-center flex-column">
+                            <!-- <i class="bi-ev-front"></i> -->
+                            <!-- <i class="bi-ev-station"></i> -->
+                            <span class="fitur-icon"><i class="bi-car-front"></i></span>
+                            <span class="fitur-text">{{ car.types[0].model}}</span>
+                        </div>
+                        <div class="fitur-item d-flex text-center flex-column">
+                            <span class="fitur-icon"><i class="bi-fuel-pump"></i></span>
+                            <span class="fitur-text">{{ car.types[0].fuel}}</span>
+                        </div>
+                        <div class="fitur-item d-flex text-center flex-column">
+                            <span class="fitur-icon"><i class="bi-sliders"></i></span>
+                            <span class="fitur-text">{{ car.types[0].transmission}}</span>
+                        </div>
+                    </div>
+                </legend>
+
+                <h1 class="fs-4">Rp {{ car.types[0].price|number_format(0, ',', '.') }}</h1>
+                <span class="fs-5 text-decoration-line-through text-secondary">Rp {{
+                    car.types[0].discount|number_format(0,
+                    ',','.') }}</span>
+                <p class="text-danger">Hubungi kami untuk <b>Tambahan Diskon Eksklusif SINAR MAS</b></p>
+
+                <div class="d-flex justify-content-between">
+                    <a href="{{ car.types[0].link_brochure }}" class="icon-link-hover">
+                        <img class="img-fluid" src="{{ 'storage/app/media/img/e-brochure.png' }}" alt="e-brochure" />
+                    </a>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#bookingModal" class="icon-link-hover">
+                        <img class="img-fluid" src="{{ 'storage/app/media/img/pesan-sekarang.png' }}"
+                            alt="pesan-sekarang" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

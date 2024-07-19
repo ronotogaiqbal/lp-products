@@ -1,0 +1,32 @@
+<!-- plugins/wulingepp/admindashboard/views/banners/form.htm -->
+{% extends "wulingepp/admindashboard/layouts/default" %}
+
+{% block content %}
+    <h2>{{ form_mode == 'create' ? 'Create' : 'Edit' }} Banner</h2>
+    {{ form_open({ request: form_mode == 'create' ? 'onCreateBanner' : 'onUpdateBanner', files: true }) }}
+        <input type="hidden" name="id" value="{{ banner.id }}">
+        
+        <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" name="image" id="image" accept="image/*" {{ form_mode == 'create' ? 'required' }}>
+            {% if banner.image %}
+                <img src="{{ banner.image.path }}" alt="Current Banner" width="100">
+            {% endif %}
+        </div>
+        
+        <div class="form-group">
+            <label for="link">Link</label>
+            <input type="url" name="link" id="link" value="{{ banner.link }}" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="is_active">Status</label>
+            <select name="is_active" id="is_active">
+                <option value="1" {{ banner.is_active ? 'selected' }}>Active</option>
+                <option value="0" {{ not banner.is_active ? 'selected' }}>Inactive</option>
+            </select>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">{{ form_mode == 'create' ? 'Create' : 'Update' }} Banner</button>
+    {{ form_close() }}
+{% endblock %}

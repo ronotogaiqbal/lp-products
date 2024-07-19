@@ -1,0 +1,30 @@
+columns:
+    prospect_name:
+        label: 'Prospect Name'
+        type: text
+        searchable: true
+    prospect_group:
+        label: 'Prospect Group'
+        type: text
+        searchable: true
+    prospect_company:
+        label: 'Prospect Company'
+        type: text
+        searchable: true
+    prospect_email:
+        label: 'Prospect email'
+        type: text
+        searchable: true
+    prospect_domisili:
+        label: 'Prospek Domisili'
+        type: text
+        searchable: true
+    vehicle_types_id:
+        label: 'ID Vehicle'
+        type: number
+    test_drive:
+        label: 'Test Drive'
+        type: number
+    tc_checked:
+        label: 'T&C Checked'
+        type: number

@@ -1,0 +1,32 @@
+fields:
+    name:
+        label: Name
+        span: full
+    order_view:
+        label: Order
+        type: number
+    types:
+        label: Vehicle Types
+        type: repeater
+        form:
+            fields:
+                name_type:
+                    label: Type Name
+                fuel:
+                    label: Fuel
+                transmission:
+                    label: Transmission
+                image_path:
+                    label: Image
+                    type: fileupload
+                    mode: image
+                link_brochure:
+                    label: Brochure Link
+                price:
+                    label: Price
+                    type: number
+                discount:
+                    label: Discount
+                    type: number
+                link_more:
+                    label: More Info Link

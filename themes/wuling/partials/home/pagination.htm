@@ -1,0 +1,36 @@
+<nav aria-label="Page navigation">
+    <br />
+    <ul class="pagination justify-content-center">
+        {% if currentPage > 1 %}
+        <li class="page-item">
+            <a
+                class="page-link"
+                href="javascript:;"
+                data-request="onFilterCars"
+                data-request-data="page: {{ currentPage - 1 }}"
+                >Previous</a
+            >
+        </li>
+        {% endif %} {% for page in 1..lastPage %}
+        <li class="page-item {{ page == currentPage ? 'active' : '' }}">
+            <a
+                class="page-link"
+                href="javascript:;"
+                data-request="onFilterCars"
+                data-request-data="page: {{ page }}"
+                >{{ page }}</a
+            >
+        </li>
+        {% endfor %} {% if currentPage < lastPage %}
+        <li class="page-item">
+            <a
+                class="page-link"
+                href="javascript:;"
+                data-request="onFilterCars"
+                data-request-data="page: {{ currentPage + 1 }}"
+                >Next</a
+            >
+        </li>
+        {% endif %}
+    </ul>
+</nav>

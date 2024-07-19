@@ -1,0 +1,62 @@
+fields:
+    vehicles_id:
+        label: 'Id Vehicle'
+        span: auto
+        type: number
+    name_type:
+        label: 'Name Type'
+        span: auto
+        type: text
+    fuel:
+        label: Fuel
+        options:
+            Gasoline: Gasoline
+            Hybrid: Hybrid
+            Electric: Electric
+        showSearch: true
+        span: auto
+        type: dropdown
+    transmission:
+        label: Transmission
+        options:
+            MT: MT
+            CVT: CVT
+            DHT: DHT
+            SRG: SRG
+        showSearch: true
+        span: auto
+        type: dropdown
+    image_path:
+        label: 'Image Path'
+        mode: image
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: mediafinder
+    link_brochure:
+        label: 'Link Brochure'
+        span: auto
+        type: text
+    link_more:
+        label: 'Link More'
+        span: auto
+        type: text
+    price:
+        label: Price
+        span: auto
+        type: number
+    discount:
+        label: Discount
+        span: auto
+        type: number
+    model:
+        label: Model
+        options:
+            EV: EV
+            SUV: SUV
+            MPV: MPV
+            Commercial: Commercial
+        showSearch: true
+        span: auto
+        type: dropdown

@@ -1,0 +1,11 @@
+name: VehicleType
+modelClass: Rono\Vehicles\Models\VehicleType
+form: $/rono/vehicles/models/vehicletype/fields.yaml
+defaultRedirect: rono/vehicles/vehicletype
+create:
+    redirect: 'rono/vehicles/vehicletype/update/:id'
+    redirectClose: rono/vehicles/vehicletype
+update:
+    redirect: rono/vehicles/vehicletype
+    redirectClose: rono/vehicles/vehicletype
+preview: {  }

@@ -1,0 +1,12 @@
+list: $/rono/vehicles/models/vehicletype/columns.yaml
+modelClass: Rono\Vehicles\Models\VehicleType
+title: VehicleType
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'rono/vehicles/vehicletype/update/:id'

@@ -1,0 +1,163 @@
+<div class="row row-cols-1 row-cols-md-3 g-4" id="car-list">
+    {% for car in cars %}
+    <div class="col car-item">
+        <div class="shadow-sm card vehicle-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between border-bottom pb-1">
+                    <h5 class="card-title">{{ car.name }}</h5>
+                    <a class="icon-link icon-link-more text-decoration-none border-info rounded-pill border px-2"
+                        href="{{ car.types[0].link_more }}" target="_blank" style="display:none;">
+                        <span class="gradient-text">Lihat Detail <i class="bi-arrow-up-right"></i></span>
+                    </a>
+                </div>
+                <div class="img-container">
+                    <img class="img-fluid" src="{{ car.types[0].image_path }}" class="card-img-top"
+                        alt="{{ car.name }}" />
+                </div>
+                <select class="form-select carType" aria-label="Pilih Type" data-car-id="{{ car.id }}">
+                    {% for type in car.types %}
+                    <option value="{{ type.id }}">{{ type.name_type }}</option>
+                    {% endfor %}
+                </select>
+                <legend class="lead border-bottom pt-2 pb-2">
+                    Fitur
+                    <div class="fitur d-flex justify-content-between">
+                        <div class="fitur-item d-flex text-center flex-column">
+                            <span class="fitur-icon"><i class="bi-car-front"></i></span>
+                            <span class="fitur-text fs-6">{{ car.types[0].model }}</span>
+                        </div>
+                        <div class="fitur-item d-flex text-center flex-column">
+                            <span class="fitur-icon"><i class="bi-fuel-pump"></i></span>
+                            <span class="fitur-text fs-6">{{ car.types[0].fuel }}</span>
+                        </div>
+                        <div class="fitur-item d-flex text-center flex-column">
+                            <span class="fitur-icon"><i class="bi-sliders"></i></span>
+                            <span class="fitur-text fs-6">{{ car.types[0].transmission }}</span>
+                        </div>
+                    </div>
+                </legend>
+                <h1 class="fs-4 price">Rp {{ car.types[0].discount|number_format(0, ',', '.') }}</h1>
+                <span class="fs-5 diskon text-decoration-line-through text-secondary">Rp {{
+                    car.types[0].price|number_format(0,
+                    ',','.') }}*</span>
+                <p class="text-danger">Hubungi kami untuk <b>TAMBAHAN DISKON EKSKLUSIF SINAR MAS</b></p>
+                <div class="d-flex justify-content-between">
+                    <a href="{{ car.types[0].link_brochure }}" class="icon-link-hover" target="_blank">
+                        <img class="img-fluid" src="{{ 'storage/app/media/img/e-brochure.png' }}" alt="e-brochure" />
+                    </a>
+                    <a href="#" data-vhtype="{{ car.types[0].id }}" data-bs-toggle="modal"
+                        data-bs-target="#bookingModal" class="icon-link-hover ordernow">
+                        <img class="img-fluid" src="{{ 'storage/app/media/img/pesan-sekarang.png' }}"
+                            alt="pesan-sekarang" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const selectElement = document.querySelector('select');
+            const options = selectElement.querySelectorAll('option');
+
+            options.forEach(option => {
+                if (option.textContent.includes('*')) {
+                    option.innerHTML = option.textContent.replace('*', '<span style="color:red">*</span>');
+                }
+            });
+        });
+
+    function modelclick() {
+        $('.ordernow[data-vhtype]').on('click', function (event) {
+            event.preventDefault();
+            var vhid = $(this).data('vhtype');
+            var vhid = getVhTypeValue($(this).data('vhtype'));
+            var node = $(this)[0].getAttributeNode('data-vhtype');
+            console.log("Node value of data-vhtype:", node.nodeValue);
+            var vhid = node.nodeValue;
+            console.log("Clicked element:", $(this));
+            console.log("Car ID from clicked element:", vhid);
+            $('#bookingModal').one('shown.bs.modal', function () {
+                $(this).data('vhtype', vhid);
+                console.log("Car ID set in bookingModal after shown.bs.modal:", $(this).data('vhtype'));
+                setTimeout(function () {
+                    var modalCarId = $('#bookingModal').data('vhtype');
+                    console.log("Car ID in setTimeout:", modalCarId);
+                    $('#jenisMobil').val(modalCarId).trigger('change');
+                }, 200);
+            });
+            // Trigger the modal to show
+            $('#bookingModal').modal('show');
+        });
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        const vehicleTypes = {{ cars | json_encode | raw
+    }};
+    setupEventListeners(vehicleTypes);
+    modelclick();
+    });
+    function setupEventListeners(vehicleTypes) {
+        document.querySelectorAll('.carType').forEach(function (selectElement) {
+            selectElement.addEventListener('change', function () {
+                const carId = this.getAttribute('data-car-id');
+                const selectedTypeId = this.value;
+                const car = vehicleTypes.find(car => car.id == carId);
+                const selectedType = car.types.find(type => type.id == selectedTypeId);
+                if (selectedType) {
+                    const card = this.closest('.vehicle-card');
+                    card.querySelector('.img-container img').src = selectedType.image_path;
+                    card.querySelectorAll('.fitur-text')[0].textContent = selectedType.model;
+                    card.querySelectorAll('.fitur-text')[1].textContent = selectedType.fuel;
+                    card.querySelectorAll('.fitur-text')[2].textContent = selectedType.transmission;
+                    card.querySelector('.diskon').textContent = `${formatCurrency(selectedType.price)}*`;
+                    card.querySelector('.price').textContent = `${formatCurrency(selectedType.discount)}`;
+                    card.querySelectorAll('.icon-link-more[href]')[0].href = selectedType.link_more;
+                    card.querySelectorAll('.icon-link-hover[href]')[0].href = selectedType.link_brochure;
+                    card.querySelector('.ordernow').removeAttribute('data-vhtype');
+                    card.querySelector('.ordernow').setAttribute('data-vhtype', `${selectedType.id}`);
+                }
+            });
+        });
+        document.querySelectorAll('.ordernow').forEach(function (element) {
+            element.addEventListener('click', function (event) {
+                event.preventDefault(); // Prevent default action
+                var vhid = this.getAttribute('data-vhtype');
+                console.log("Car ID from clicked element:", vhid);
+                document.getElementById('bookingModal').setAttribute('data-vhtype', vhid);
+                console.log("Car ID set in bookingModal:", document.getElementById('bookingModal').getAttribute('data-vhtype'));
+                console.log(getVhTypeValue(vhid));
+            });
+        });
+    }
+    function onAjaxPaginationComplete() {
+        const vehicleTypes = {{ cars | json_encode | raw
+    }};
+    setupEventListeners(vehicleTypes);
+    modelclick();
+    }
+    function formatCurrency(amount, locale = "id-ID", currency = "IDR") {
+        const formatter = new Intl.NumberFormat(locale, {
+            style: "currency",
+            currency: currency,
+            minimumFractionDigits: 0,
+            maximumFractionDigits: 0,
+        });
+        return formatter.format(amount);
+    }
+    function getVhTypeValue(attributeValue) {
+        var element = $('.ordernow[data-vhtype="' + attributeValue + '"]');
+        if (element.length > 0) {
+            var vhTypeValue = element.attr('data-vhtype');
+            return vhTypeValue;
+        } else {
+            console.log("Element with data-vhtype", attributeValue, "not found.");
+            return null;
+        }
+    }
+    document.addEventListener('ajaxPaginationComplete', onAjaxPaginationComplete);
+    $(document).ready(function () {
+        onAjaxPaginationComplete();
+        modelclick();
+    });
+</script>

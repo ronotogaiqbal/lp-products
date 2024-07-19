@@ -1,0 +1,10 @@
+name: Vehicle
+form: $/mvp/wulingepp/models/vehicle/fields.yaml
+modelClass: MVP\WulingEPP\Models\Vehicle
+defaultRedirect: mvp/wulingepp/vehicles
+create:
+    redirect: 'mvp/wulingepp/vehicles/update/:id'
+    redirectClose: mvp/wulingepp/vehicles
+update:
+    redirect: mvp/wulingepp/vehicles
+    redirectClose: mvp/wulingepp/vehicles

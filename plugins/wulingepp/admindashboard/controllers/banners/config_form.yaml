@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Banner
+
+# Model Form Field configuration
+form: $/wulingepp/admindashboard/models/banner/fields.yaml
+
+# Model Class name
+modelClass: WulingEPP\AdminDashboard\Models\Banner
+
+# Default redirect location
+defaultRedirect: wulingepp/admindashboard/banners
+
+# Create page
+create:
+    title: backend::lang.form.create_title
+    redirect: wulingepp/admindashboard/banners/update/:id
+    redirectClose: wulingepp/admindashboard/banners
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: wulingepp/admindashboard/banners
+    redirectClose: wulingepp/admindashboard/banners
+
+# Preview page
+preview:
+    title: backend::lang.form.preview_title

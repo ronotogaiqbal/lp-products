@@ -1,0 +1,10 @@
+name: Booking
+form: $/mvp/wulingepp/models/booking/fields.yaml
+modelClass: MVP\WulingEPP\Models\Booking
+defaultRedirect: mvp/wulingepp/bookings
+create:
+    redirect: 'mvp/wulingepp/bookings/update/:id'
+    redirectClose: mvp/wulingepp/bookings
+update:
+    redirect: mvp/wulingepp/bookings
+    redirectClose: mvp/wulingepp/bookings

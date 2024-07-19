@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Admin Panel</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('backend/rono/adminpanel/dashboard') }}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('backend/rono/adminpanel/bookings') }}">Bookings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('backend/rono/adminpanel/vehicles') }}">Vehicles</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('backend/rono/adminpanel/banners') }}">Banners</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1>Bookings</h1>
+        <div class="mb-3">
+            <a href="{{ url('backend/rono/adminpanel/bookings/export') }}" class="btn btn-primary">Export to Excel</a>
+        </div>
+        <form method="GET" action="{{ url('backend/rono/adminpanel/bookings') }}">
+            <div class="form-group">
+                <label for="statusFilter">Filter by Status:</label>
+                <select name="status" id="statusFilter" class="form-control" onchange="this.form.submit()">
+                    <option value="">All</option>
+                    <option value="Prospect" {{ statusFilter == 'Prospect' ? 'selected' : '' }}>Prospect</option>
+                    <option value="Hot Prospect" {{ statusFilter == 'Hot Prospect' ? 'selected' : '' }}>Hot Prospect</option>
+                    <option value="True Prospect" {{ statusFilter == 'True Prospect' ? 'selected' : '' }}>True Prospect</option>
+                    <option value="Customer" {{ statusFilter == 'Customer' ? 'selected' : '' }}>Customer</option>
+                    <option value="Drop" {{ statusFilter == 'Drop' ? 'selected' : '' }}>Drop</option>
+                    <option value="Junk" {{ statusFilter == 'Junk' ? 'selected' : '' }}>Junk</option>
+                </select>
+            </div>
+        </form>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Registered At</th>
+                    <th>Vehicle Name</th>
+                    <th>Prospect Name</th>
+                    <th>Prospect Group</th>
+                    <th>Prospect Company</th>
+                    <th>Prospect ID Karyawan</th>
+                    <th>Prospect Email</th>
+                    <th>Prospect Phone</th>
+                    <th>Prospect Domisili</th>
+                    <th>Test Drive</th>
+                    <th>TC Checked</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.id }}</td>
+                    <td>{{ booking.updated_at|date("d-M") }}</td>
+                    <td>{{ booking.vehicleType.vehicle.name }} {{ booking.vehicleType.name_type }}</td>
+                    <td>{{ booking.prospect_name }}</td>
+                    <td>{{ booking.prospect_group }}</td>
+                    <td>{{ booking.prospect_company }}</td>
+                    <td>{{ booking.prospect_id_karyawan }}</td>
+                    <td>{{ booking.prospect_email }}</td>
+                    <td>{{ booking.prospect_phone }}</td>
+                    <td>{{ booking.prospect_domisili }}</td>
+                    <td>{{ booking.test_drive ? 'Yes' : 'No' }}</td>
+                    <td>{{ booking.tc_checked ? 'Yes' : 'No' }}</td>
+                    <td>
+                        <form method="POST" action="{{ url('backend/rono/adminpanel/bookings/update-status', { id: booking.id }) }}">
+                            <select name="status" onchange="this.form.submit()">
+                                <option value="Prospect" {{ booking.status == 'Prospect' ? 'selected' : '' }}>Prospect</option>
+                                <option value="Hot Prospect" {{ booking.status == 'Hot Prospect' ? 'selected' : '' }}>Hot Prospect</option>
+                                <option value="True Prospect" {{ booking.status == 'True Prospect' ? 'selected' : '' }}>True Prospect</option>
+                                <option value="Customer" {{ booking.status == 'Customer' ? 'selected' : '' }}>Customer</option>
+                                <option value="Drop" {{ booking.status == 'Drop' ? 'selected' : '' }}>Drop</option>
+                                <option value="Junk" {{ booking.status == 'Junk' ? 'selected' : '' }}>Junk</option>
+                            </select>
+                        </form>
+                    </td>
+                    <td>
+                        <!-- Add any additional actions here -->
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

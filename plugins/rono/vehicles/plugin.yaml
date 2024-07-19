@@ -1,0 +1,19 @@
+plugin:
+    name: 'rono.vehicles::lang.plugin.name'
+    description: 'rono.vehicles::lang.plugin.description'
+    author: Rono
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    rono-vehicles-vehicles:
+        label: Vehicle
+        url: rono/vehicles/vehicles
+        icon: icon-anchor
+    rono-vehicles-vehicletype:
+        label: 'Vehicle Types'
+        url: rono/vehicles/vehicletype
+        icon: icon-car
+    rono-vehicles-bookings:
+        label: Bookings
+        url: rono/vehicles/bookings
+        icon: icon-book

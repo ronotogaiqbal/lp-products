@@ -1,0 +1,39 @@
+{% extends 'mvp.wulingepp::layouts.admin' %}
+
+{% block content %}
+    <h1>Bookings</h1>
+    <a href="{{ url('admin/wulingepp/bookings/create') }}" class="btn btn-primary mb-3">Create New Booking</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Vehicle Type</th>
+                <th>Prospect Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Test Drive</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.id }}</td>
+                    <td>{{ booking.vehicleType.name_type }}</td>
+                    <td>{{ booking.prospect_name }}</td>
+                    <td>{{ booking.prospect_email }}</td>
+                    <td>{{ booking.prospect_phone }}</td>
+                    <td>{{ booking.test_drive ? 'Yes' : 'No' }}</td>
+                    <td>
+                        <a href="{{ url('admin/wulingepp/bookings/' ~ booking.id ~ '/edit') }}" class="btn btn-sm btn-primary">Edit</a>
+                        <form action="{{ url('admin/wulingepp/bookings/' ~ booking.id) }}" method="POST" style="display: inline;">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

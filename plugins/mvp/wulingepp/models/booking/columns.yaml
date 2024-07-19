@@ -1,0 +1,23 @@
+columns:
+    id:
+        label: ID
+        searchable: true
+    vehicle_types_id:
+        label: Vehicle Type
+        relation: vehicleType
+        select: name_type
+    prospect_name:
+        label: Prospect Name
+        searchable: true
+    prospect_email:
+        label: Email
+        searchable: true
+    prospect_phone:
+        label: Phone
+        searchable: true
+    test_drive:
+        label: Test Drive
+        type: switch
+    created_at:
+        label: Created At
+        type: datetime

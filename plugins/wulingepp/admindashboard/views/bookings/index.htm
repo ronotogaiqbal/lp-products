@@ -1,0 +1,37 @@
+<!-- plugins/wulingepp/admindashboard/views/bookings/index.htm -->
+{% extends "wulingepp/admindashboard/layouts/default" %}
+
+{% block content %}
+    <h2>Booking Management</h2>
+    {% if bookings|length > 0 %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Vehicle</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                    <tr>
+                        <td>{{ booking.name }}</td>
+                        <td>{{ booking.email }}</td>
+                        <td>{{ booking.phone }}</td>
+                        <td>{{ booking.vehicle }}</td>
+                        <td>{{ booking.status }}</td>
+                        <td>
+                            <a href="{{ 'bookings/edit'|page({ id: booking.id }) }}">Edit</a>
+                            <a href="{{ 'bookings/delete'|page({ id: booking.id }) }}" onclick="return confirm('Are you sure?')">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No bookings found.</p>
+    {% endif %}
+{% endblock %}

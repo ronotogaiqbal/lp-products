@@ -1,0 +1,11 @@
+name: Vehicles
+modelClass: Rono\Banners\Models\Vehicles
+form: $/rono/banners/models/vehicles/fields.yaml
+defaultRedirect: rono/banners/vehicles
+create:
+    redirect: 'rono/banners/vehicles/update/:id'
+    redirectClose: rono/banners/vehicles
+update:
+    redirect: rono/banners/vehicles
+    redirectClose: rono/banners/vehicles
+preview: {  }

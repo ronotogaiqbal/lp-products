@@ -1,0 +1,32 @@
+fields:
+    vehicle_types_id:
+        label: Vehicle Type
+        type: relation
+        select: name_type
+    prospect_name:
+        label: Prospect Name
+        span: auto
+    prospect_group:
+        label: Prospect Group
+        span: auto
+    prospect_company:
+        label: Prospect Company
+        span: auto
+    prospect_id_karyawan:
+        label: ID Karyawan
+        span: auto
+    prospect_email:
+        label: Email
+        span: auto
+    prospect_phone:
+        label: Phone
+        span: auto
+    prospect_domisili:
+        label: Domisili
+        span: auto
+    test_drive:
+        label: Test Drive
+        type: switch
+    tc_checked:
+        label: T&C Checked
+        type: switch

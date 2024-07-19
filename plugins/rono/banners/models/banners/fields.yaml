@@ -1,0 +1,21 @@
+fields:
+    link:
+        label: Link
+        span: auto
+        type: text
+    order:
+        label: 'Order By'
+        span: auto
+        type: number
+    is_active:
+        label: 'is Active?'
+        span: auto
+        type: switch
+    image_path:
+        label: 'Media Finder'
+        mode: file
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: mediafinder

@@ -1,0 +1,11 @@
+plugin:
+    name: 'rono.banners::lang.plugin.name'
+    description: 'rono.banners::lang.plugin.description'
+    author: rono
+    icon: oc-icon-adjust
+    homepage: ''
+navigation:
+    Banners:
+        label: Banners
+        url: rono/banners/banners
+        icon: icon-life-ring

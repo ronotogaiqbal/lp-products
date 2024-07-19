@@ -1,0 +1,17 @@
+fields:
+    nama:
+        label: Nama
+        span: auto
+        type: text
+    alamat:
+        label: Alamat
+        span: auto
+        type: text
+    type:
+        label: Type
+        options:
+            1: '1'
+            2: '2'
+        showSearch: true
+        span: auto
+        type: dropdown

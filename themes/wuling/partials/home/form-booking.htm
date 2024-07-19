@@ -1,0 +1,209 @@
+[bookingForm]
+
+[listVehicles]
+==
+<div class="modal fade" id="bookingModal" data-vhtype="" tabindex="-1" aria-labelledby="bookingModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="bookingModalLabel">Formulir Data Diri</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form data-request="bookingForm::onFormSubmit" class="needs-validation" novalidate
+                    data-request-validate>
+                    {{ form_token() }}
+                    <div id="{{ __SELF__ }}_forms_flash"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="nama" name="nama" placeholder="Jhon Wick"
+                                    required>
+                                <label for="nama">Nama</label>
+                                <div class="invalid-feedback">
+                                    Nama wajib diisi.
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="namaPerusahaan" name="namaPerusahaan"
+                                    required placeholder="Nama Perusahaan">
+                                <label for="namaPerusahaan">Nama Perusahaan</label>
+                                <div class="invalid-feedback">
+                                    Nama Perusahaan wajib diisi.
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="email" class="form-control" id="email" name="email" required
+                                    placeholder="">
+                                <label for="email">E-mail*</label>
+                                <div class="invalid-feedback">
+                                    E-mail wajib diisi.
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <select class="form-select select2" id="domisiliKTP" name="domisiliKTP"
+                                    data-placeholder="Domisili KTP" required>
+                                    <option></option>
+                                    <option>Jakarta</option>
+                                    <option>Bogor</option>
+                                    <option>Depok</option>
+                                    <option>Tangerang</option>
+                                    <option>Bekasi</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Domisili KTP wajib diisi.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-3">
+                                <select class="form-select select2" id="namaGrup" name="namaGrup"
+                                    data-placeholder="Nama Grup" required>
+                                    <option></option>
+                                    <option>Sinar Mas Land</option>
+                                    <option>Sinar Mas Financial</option>
+                                    <option>Sinar Mas Agribusiness and Food</option>
+                                    <option>Sinar Mas Communication & Technology</option>
+                                    <option>Sinar Mas Asia Pulp & Paper (APP)</option>
+                                    <option>Sinar Mas Energy & Infrastructure</option>
+                                    <option>Sinar Mas Healthcare</option>
+                                    <option>Sinar Mas Land Precious</option>
+                                    <option>Perusahaan Lainnya</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Nama Grup wajib diisi.
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="idKaryawan" name="idKaryawan" required
+                                    placeholder="">
+                                <label for="idKaryawan">ID Karyawan/Precious*</label>
+                                <div class="invalid-feedback">
+                                    ID Karyawan/Precious wajib diisi.
+                                </div>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="tel" class="form-control" id="nomorTelepon" name="nomorTelepon" required
+                                    placeholder="">
+                                <label for="nomorTelepon">Nomor Telepon*</label>
+                                <div class="invalid-feedback">
+                                    Nomor Telepon wajib diisi.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">Detail Mobil</div>
+                    <br>
+                    <div class="form-floating mb-3">
+                        <select class="select2 form-control" id="jenisMobil" name="jenisMobil"
+                            data-placeholder="Jenis Mobil" required>
+                            <option></option>
+                        </select>
+                        <label for="jenisMobil">Jenis Mobil yang Diminati*</label>
+                        <div class="invalid-feedback">
+                            Jenis Mobil yang Diminati wajib diisi.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label>Test Drive*</label><br>
+                        <div class="form-check form-check-inline ">
+                            <input class="form-check-input" type="radio" id="testDriveYes" name="testDrive" value="1"
+                                checked>
+                            <label class="form-check-label" for="testDriveYes">Iya</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" id="testDriveNo" name="testDrive" value="0"
+                                required>
+                            <label class="form-check-label" for="testDriveNo">Tidak</label>
+                        </div>
+                        <div class="invalid-feedback">
+                            Test Drive wajib dipilih.
+                        </div>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="agreement" value="1" name="agreement"
+                            required>
+                        <label class="form-check-label" for="agreement">
+                            Dengan mengakses halaman ini, Anda mengakui dan setuju bahwa Anda secara sadar memberikan
+                            data pribadi Anda,
+                            menerima praktik, persyaratan, dan/atau kebijakan yang diuraikan dalam Kebijakan ini, dan
+                            Anda dengan ini
+                            mengizinkan Kami untuk mengumpulkan, menggunakan, mengungkapkan dan/atau mengolah data
+                            pribadi Anda seperti
+                            yang dijelaskan di sini.
+                        </label>
+                        <div class="invalid-feedback">
+                            Anda harus menyetujui persyaratan sebelum mengirimkan.
+                        </div>
+                    </div>
+					<div class="form-group d-flex justify-content-center">
+                            <div class="g-recaptcha" data-sitekey="6Lc5yRIqAAAAAFxNPDerqijm_9d6_MaoIwbVW-4a"></div>
+                            <!--
+                            <button type="submit" class="btn btn-link">
+                                <img class="img-fluid" src="{{ 'storage/app/media/img/pesan-mobil-sekarang.png' }}"
+                                    alt="Pesan Sekarang">
+                            </button>
+                            //-->
+                            <button class="gradient-button btn btn-link" type="submit">Submit</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% put scripts %}
+<script>
+    $(document).ready(function () {
+        // always reset form fields when page loads
+        $('form').trigger('reset');
+        function formatOption(option) {
+            if (!option.id) {
+                return option.text;
+            }
+            var optionWithImage = $(
+                '<span style="width:10% !important;"><img src="' + option.img + '"  style="width:10% !important;" /> ' + option.text + '</span>'
+            );
+            return optionWithImage;
+        }
+        var options = [
+            {% for vh in alltypes %}
+            {
+            id: {{ vh.id }},
+        img: baseUrl + "{{ vh.image_path }}",
+        text: "{{ vh.vehicles.name }} - {{ vh.name_type }}"
+                    }{% if not loop.last %}, {% endif %}
+    {% endfor %}
+        ];
+    $('.select2').each(function () {
+        $('#jenisMobil').select2({
+            theme: 'bootstrap-5',
+            dropdownParent: $(this).parent(),
+            templateResult: formatOption,
+            templateSelection: formatOption,
+            data: options,
+            minimumResultsForSearch: Infinity
+        });
+        $('#domisiliKTP').select2({
+            theme: 'bootstrap-5',
+            dropdownParent: $(this).parent(),
+        });
+        $('#namaGrup').select2({
+            theme: 'bootstrap-5',
+            dropdownParent: $(this).parent(),
+        });
+    });
+    // Custom JavaScript to handle client-side validation
+    var forms = document.querySelectorAll('.needs-validation');
+    Array.prototype.slice.call(forms).forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+        }, false);
+    });
+    });
+</script>
+{% endput %}

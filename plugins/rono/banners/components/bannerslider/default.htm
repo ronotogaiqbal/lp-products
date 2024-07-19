@@ -1,0 +1,16 @@
+<section class="banner-slider">
+        <div class="inner-container">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    {% if banners %}
+                        {% for banner in banners %}
+                            <div class="swiper-slide">
+                                <img src="{{ banner.link }}" alt="Banner {{ banner.id }}">
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>

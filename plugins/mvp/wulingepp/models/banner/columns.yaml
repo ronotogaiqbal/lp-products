@@ -1,0 +1,24 @@
+columns:
+    id:
+        label: ID
+        searchable: true
+    link:
+        label: Link
+        searchable: true
+    image_path:
+        label: Image
+        type: image
+        width: 150
+        height: 150
+    order:
+        label: Order
+        searchable: true
+    is_active:
+        label: Is Active
+        type: switch
+    created_at:
+        label: Created At
+        type: datetime
+    updated_at:
+        label: Updated At
+        type: datetime

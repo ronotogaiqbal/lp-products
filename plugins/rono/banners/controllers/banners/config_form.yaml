@@ -1,0 +1,10 @@
+name: Banners
+form: $/rono/banners/models/banners/fields.yaml
+modelClass: Rono\Banners\Models\Banners
+defaultRedirect: rono/banners/banners
+create:
+    redirect: 'rono/banners/banners/update/:id'
+    redirectClose: rono/banners/banners
+update:
+    redirect: rono/banners/banners
+    redirectClose: rono/banners/banners

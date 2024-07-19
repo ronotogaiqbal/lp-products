@@ -1,0 +1,11 @@
+name: Bookings
+modelClass: Rono\Vehicles\Models\Bookings
+form: $/rono/vehicles/models/bookings/fields.yaml
+defaultRedirect: rono/vehicles/bookings
+create:
+    redirect: 'rono/vehicles/bookings/update/:id'
+    redirectClose: rono/vehicles/bookings
+update:
+    redirect: rono/vehicles/bookings
+    redirectClose: rono/vehicles/bookings
+preview: {  }

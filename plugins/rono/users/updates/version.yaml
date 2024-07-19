@@ -1,0 +1,5 @@
+v1.0.1:
+    - 'Initialize plugin'
+v1.0.2:
+    - 'Created table rono_users_'
+    - builder_table_create_rono_users_.php

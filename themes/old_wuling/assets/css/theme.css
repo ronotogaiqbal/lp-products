@@ -1,0 +1,106 @@
+.navbar{
+    background-color: rgba(223, 222, 222, 0.8);
+}
+.flex-container {
+      display: flex;
+      justify-content: space-between;
+        align-items: center;
+        width: 100%;
+      gap: 30vw;
+    }
+.flex-item {
+    flex: 1;
+    text-align: center;
+}
+.btn-outline-success {
+    color: #10b981;
+    border-color: #10b981;
+}
+.herobg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-image: url('../../../../storage/app/media/img/hero-background.png');
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: top center;
+    min-height: 100vh;
+}
+.hero .carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    /* border-radius: 15%; */
+    height: 100%;
+    width: 100%;
+}
+.hero .carousel-caption {
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    padding: 20px;
+    border-radius: 10px;
+}
+.hero .carousel-caption h1,
+.hero .carousel-caption h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.hero .carousel-caption p {
+    font-size: 1.2rem;
+}
+.hero .carousel-indicators {
+    bottom: 20px;
+}
+.hero .carousel-control-prev,
+.hero .carousel-control-next {
+    width: 5%;
+}
+/* text */
+.gradient-text {
+    background: linear-gradient(to right, #1D5D94, #1AB5C9);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+.keuntungan .card{
+    transition: transform 0.3s;
+}
+.keuntungan .card:hover{
+    transform: translateY(-5px);
+}
+.icon-link-hover:hover{
+    transform: translateY(-5px);
+}
+.cost-comparison{
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-image: url('https://galeriaplikasi.com/storage/app/media/contents/cost-comparison.jpg');
+    background-repeat: repeat-x;
+    background-size: cover;
+    background-position: top center;
+    min-height: 100vh;
+}
+.custom-list {
+    list-style: none;
+    padding-left: 0;
+}
+.custom-list li {
+    position: relative;
+    padding-left: 2em; /* Adjust padding to fit the icon */
+}
+.custom-list li::before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-4 4.5a.75.75 0 0 1-1.08 0l-2-2.25a.75.75 0 1 1 1.08-1.05l1.47 1.664 3.47-3.864z"/></svg>');
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.5em;
+    height: 1.5em;
+}
+footer a{
+    color: white;
+    text-decoration: none;
+}
+footer a:hover{
+    color: #1AB5C9;
+    text-decoration: none;
+}

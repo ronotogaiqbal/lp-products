@@ -1,0 +1,33 @@
+<!-- plugins/wulingepp/admindashboard/views/layouts/default.htm -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Admin Dashboard - {{ this.page.title }}</title>
+        {% styles %}
+        <link href="{{ 'assets/css/admin.css'|theme }}" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1>Admin Dashboard</h1>
+            <nav>
+                <ul>
+                    <li><a href="{{ 'dashboard'|page }}">Dashboard</a></li>
+                    <li><a href="{{ 'banners'|page }}">Banner Management</a></li>
+                    <li><a href="{{ 'bookings'|page }}">Booking Management</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            {% page %}
+        </main>
+
+        <footer>
+            <p>&copy; {{ "now"|date("Y") }} WulingEPP</p>
+        </footer>
+
+        {% framework extras %}
+        {% scripts %}
+    </body>
+</html>

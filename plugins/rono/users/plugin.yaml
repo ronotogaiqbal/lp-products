@@ -1,0 +1,6 @@
+plugin:
+    name: 'rono.users::lang.plugin.name'
+    description: 'rono.users::lang.plugin.description'
+    author: rono
+    icon: oc-icon-adjust
+    homepage: ''
